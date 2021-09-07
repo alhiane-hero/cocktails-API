@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+
+/* base rules: */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --body-bg: #f1f5f8;
+  --white-color: #fff;
+  --black-color: #444;
+  --main-color: #49a6e9;
+  --paragraph-color: hsl(210, 22%, 49%);
+  --transition: all 0.5s ease-in-out;
+  --radius: 0.5rem;
+  --line-height: 1.7rem;
+}
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--body-bg);
+  font-family: "Open Sans", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* container part: */
+.container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Cocktails API: */
+section {
+  padding: 4rem 0;
+}
+section h2 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  text-align: center;
+  color: var(--black-color);
+}
+section form {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 5rem;
+}
+section form input {
+  width: 400px;
+  max-width: 100%;
+  padding: 0.7rem;
+  border: none;
+  outline: none;
+  border-radius: var(--radius);
+  box-shadow: 0 0 1px rgb(0 0 0 / 10%);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: var(--black-color);
+}
+section .cocktails,
+.drink .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 2rem 3rem;
+}
+section .cocktails .cocktail article,
+.drink .img-box {
+  display: flex;
+  position: relative;
+  border: 0.5rem solid var(--white-color);
+  border-radius: var(--radius);
+  box-shadow: 0 0 1px rgb(0 0 0 / 10%);
+  transition: var(--transition);
+}
+section .cocktails .cocktail article:hover {
+  transform: scale(1.005);
+}
+section .cocktails .cocktail article img,
+.drink .img-box img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  transition: var(--transition);
+}
+section .cocktails .cocktail article:hover img {
+  filter: blur(2px) grayscale(50%);
+}
+section .cocktails .cocktail article h3 {
+  position: absolute;
+  bottom: -1rem;
+  z-index: 999;
+  right: -1rem;
+  text-align: center;
+  padding: 0.75rem 1.75rem;
+  max-width: 100%;
+  background: #444;
+  border-radius: var(--radius);
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  color: var(--white-color);
+}
+section .error {
+  padding: 0 15px;
+  text-align: center;
+}
+section .error p {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  color: var((--black-color));
+  line-height: 3.2rem;
+}
+
+/* Cocktails API: */
+.drink .row {
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+.drink .img-box img {
+  height: 400px;
+}
+.drink .text .drink-title {
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  color: var(--black-color);
+}
+.drink .text .drink-desc,
+.drink .text .drink-ingredients li {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+.drink .text .drink-desc {
+  margin: 1rem 0;
+  color: hsl(210, 22%, 49%);
+}
+.drink .text .drink-ingredients li {
+  margin-bottom: 0.5rem;
+  color: var(--black-color);
+}
+.drink .text .drink-ingredients li i {
+  margin-right: 0.5rem;
+}
+.drink .text .btn {
+  display: block;
+  width: fit-content;
+  padding: 0.5rem 1.5rem;
+  margin-top: 1.5rem;
+  background-color: var(--main-color);
+  border-radius: var(--radius);
+  border: 2px solid var(--main-color);
+  box-shadow: 0 5px 15px rgb(0 0 0 / 10%);
+  color: var(--white-color);
+  letter-spacing: 0.1rem;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+.drink .text .btn:hover {
+  background-color: var(--black-color);
+  color: var(--main-color);
+}
+
+/* loading: */
+.loading {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading.hide {
+  display: none;
+}
